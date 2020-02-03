@@ -13,16 +13,16 @@ namespace Model
 
     public class Jugador
     {
-        private readonly int ID;
-        private string NOMBRE;
-        private string APELLIDO;
-        private Posiciones POSICION;
-        private DateTime FECHA_ALTA;
-        private float SALARIO;
-        private int EQUIPO;
-        private float ALTURA;
+        private int ID { get; set; }
+        private string NOMBRE { get; set; }
+        private string APELLIDO { get; set; }
+        private Posiciones POSICION { get; set; }
+        private DateTime FECHA_ALTA { get; set; }
+        private float SALARIO { get; set; }
+        private int EQUIPO { get; set; }
+        private float ALTURA { get; set; }
 
-        public Jugador(int id, string nombre, string apellido, Posiciones posicion,
+        /*public Jugador(int id, string nombre, string apellido, Posiciones posicion,
             DateTime fechaAlta, float salario, int idEquipo, float altura)
         {
             this.ID = id;
@@ -33,48 +33,8 @@ namespace Model
             this.SALARIO = salario;
             this.EQUIPO = idEquipo;
             this.ALTURA = altura;
-        }
+        }*/
 
-        public string Nombre
-        {
-            get { return NOMBRE;  }
-            set { NOMBRE = value; }
-        }
-
-        public string Apellido
-        {
-            get { return APELLIDO; }
-            set { APELLIDO = value; }
-        }
-
-        public Posiciones Posicion
-        {
-            get { return POSICION; }
-            set { POSICION = value; }
-        }
-
-        public DateTime FechaAlta
-        {
-            get { return FECHA_ALTA; }
-            set { FECHA_ALTA = value; }
-        }
-
-        public float Salario
-        {
-            get { return SALARIO; }
-            set { SALARIO = value; }
-        }
-
-        public int IdEquipo
-        {
-            get { return EQUIPO; }
-            set { EQUIPO = value; }
-        }
-
-        public float Altura
-        {
-            get { return ALTURA; }
-            set { ALTURA = value; }
-        }
+ 
     }
 }

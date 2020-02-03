@@ -6,7 +6,18 @@
         xmlns:local="clr-namespace:PracticaGestionJugadores"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Jugador">
+                <MenuItem Header="_Nuevo" />
+                <MenuItem Header="_Modificar" />
+                <MenuItem Header="_Borrar" />
+                <Separator />
+                <MenuItem Header="_Exit" />
+            </MenuItem>
+        </Menu>
+        <DataGrid x:Name="dgListaJugadores" HorizontalAlignment="Left" Height="360" Margin="192,21,0,0" VerticalAlignment="Top" Width="590"
+                  ItemsSource="{Binding}" AutoGenerateColumns="True"/>
+
+    </DockPanel>
 </Window>
