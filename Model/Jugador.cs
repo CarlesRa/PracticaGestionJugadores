@@ -13,14 +13,14 @@ namespace Model
 
     public class Jugador
     {
-        private int ID { get; set; }
-        private string NOMBRE { get; set; }
-        private string APELLIDO { get; set; }
-        private Posiciones POSICION { get; set; }
-        private DateTime FECHA_ALTA { get; set; }
-        private float SALARIO { get; set; }
-        private int EQUIPO { get; set; }
-        private float ALTURA { get; set; }
+        public int ID { get; set; }
+        public string NOMBRE { get; set; }
+        public string APELLIDO { get; set; }
+        public Posiciones POSICION { get; set; }
+        public DateTime FECHA_ALTA { get; set; }
+        public float SALARIO { get; set; }
+        public int EQUIPO { get; set; }
+        public float ALTURA { get; set; }
 
         /*public Jugador(int id, string nombre, string apellido, Posiciones posicion,
             DateTime fechaAlta, float salario, int idEquipo, float altura)
@@ -34,6 +34,7 @@ namespace Model
             this.EQUIPO = idEquipo;
             this.ALTURA = altura;
         }*/
+        
 
  
     }

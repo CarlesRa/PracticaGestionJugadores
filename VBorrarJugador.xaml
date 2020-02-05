@@ -1,0 +1,18 @@
+﻿<Window x:Class="PracticaGestionJugadores.VBorrarJugador"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PracticaGestionJugadores"
+        mc:Ignorable="d"
+        Title="Eliminar Jugador" Height="140.052" Width="430.356">
+    <Grid Margin="0,0,2,-1">
+        <Label Content="ID Jugador:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbIdJugador" HorizontalAlignment="Left" Height="23" Margin="85,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="42"/>
+        <Button x:Name="btEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="326,66,0,0" VerticalAlignment="Top" Width="75" Click="btEliminar_Click"/>
+        <Button x:Name="btLocalizar" Content="Localizar" HorizontalAlignment="Left" Margin="145,16,0,0" VerticalAlignment="Top" Width="75" Click="btLocalizar_Click"/>
+        <TextBox x:Name="tbNombre" HorizontalAlignment="Left" Height="23" Margin="241,17,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="160"/>
+        <Button x:Name="btCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top" Width="75" Click="btCancelar_Click"/>
+
+    </Grid>
+</Window>

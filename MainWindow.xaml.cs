@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using DbManager;
 using Model;
 using MySql.Data.MySqlClient;
 using MySql.Data.Types;
@@ -20,84 +21,62 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace PracticaGestionJugadores
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para VNewPlayer.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
-        public readonly string connectionString = "SERVER=localhost;" +
-            "DATABASE=liga;UID=root;PASSWORD=interfaces";
-        //private List<Jugador> jugadores;
-        private MySqlConnection connection;
-        private MySqlCommand query;
-        private DataTable dataTable;
+    {      
+        private DbManagment manager;
         public MainWindow()
         {
             InitializeComponent();
-            connection = new MySqlConnection(connectionString);
-            DateTime time = DateTime.Today;
-            String format = time.ToString("yyyy/MM/dd HH:mm:ss");
-            MySqlDateTime fechaDt = new MySqlDateTime();
-           
-            query = new MySqlCommand();
+            manager = DbManagment.Instance;                   
             //InsertarJugador(131, "'Manolo'", "'Perez'", "'Alero'", format ,1200, 1, 2);
             //borrarJugador(131);
-            MostrarJugadores();
+            dgListaJugadores.DataContext = manager.MostrarJugadores();
         }
 
-        public void MostrarJugadores()
+        private void miNuevoJugador_Click(object sender, RoutedEventArgs e)
         {
-            query = new MySqlCommand("SELECT * from jugador", connection);
-            connection.Open();
-            dataTable = new DataTable();
-            dataTable.Load(query.ExecuteReader());
-            connection.Close();
-            dgListaJugadores.DataContext = dataTable;
+
+            VNuevoJugador vNuevoJugador = new VNuevoJugador();
+            vNuevoJugador.Owner = this;
+            vNuevoJugador.HorizontalAlignment = this.HorizontalAlignment;
+            vNuevoJugador.VerticalAlignment = this.VerticalAlignment;
+            vNuevoJugador.ShowDialog();
         }
 
-        public void InsertarJugador(int id, string nombre, string apellido, string posicion
-            , string fechaDt,int salario, int equipo, float altura)
+        private void miModificarJugador_Click(object sender, RoutedEventArgs e)
         {
-            query = new MySqlCommand("INSERT INTO jugador VALUES("+id  + "," + nombre
-                + "," + apellido + "," + posicion + ",'" + fechaDt + "'," +  salario + "," + equipo +
-                "," + altura +");",connection);
-          
-            connection.Open();
-            query.ExecuteNonQuery();
-            connection.Close();
+            VModificarJugador vModificar = new VModificarJugador();
+            vModificar.Owner = this;
+            vModificar.ShowDialog();
         }
 
-        public void borrarJugador(int idJugador)
+        private void miBorrarJugador_Click(object sender, RoutedEventArgs e)
         {
-            query = new MySqlCommand("DELETE FROM jugador WHERE ID = " + idJugador, connection);
-            connection.Open();
-            query.ExecuteNonQuery();
-            connection.Close();
+            VBorrarJugador vBorrarJugador = new VBorrarJugador();
+            vBorrarJugador.Owner = this;
+            vBorrarJugador.ShowDialog();
         }
 
-        public void updateJugador(int idJugador, string nombre, string apellido, string posicion
-            , string fechaDt, int salario, int equipo, float altura)
+        private void btActualizar_Click(object sender, RoutedEventArgs e)
         {
-            query = new MySqlCommand("UPDATE  jugador SET(NOMBRE=" + nombre
-                + ",APELLIDO=" + apellido + ",POSICION=" + posicion + ",FECHA_ALTA'" + fechaDt + "',SALARIO=" + salario + ",EQUIPO=" + equipo +
-                ",ALTURA=" + altura + " WHERE ID = " + idJugador + ");", connection);
-
-            connection.Open();
-            query.ExecuteNonQuery();
-            connection.Close();
+            dgListaJugadores.DataContext = manager.MostrarJugadores();
         }
 
-       /* public void getJugadores()
+        private void btExit_Click(object sender, RoutedEventArgs e)
         {
-            using (IDbConnection db = new MySqlConnection(ConfigurationManager.
-                ConnectionStrings["PracticaGestionJugadores.Properties.Settings.ligaConnectionString"]
-                .ConnectionString))
-            {
-               db.Query<Jugador>
-                    ("select * from jugador");
-            }
-        }*/
+            Close();
+        }
+
+        private void miVerInforme_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("ONLY FOR PREMIUM USERS!!",
+                                 "Error", MessageBoxButton.OK);
+        }
     }
 }

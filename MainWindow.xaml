@@ -5,19 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticaGestionJugadores"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <DockPanel>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_Jugador">
-                <MenuItem Header="_Nuevo" />
-                <MenuItem Header="_Modificar" />
-                <MenuItem Header="_Borrar" />
+        Title="MainWindow" Height="395" Width="689">
+    <Grid Margin="0,0,2,41">
+
+        <DataGrid x:Name="dgListaJugadores" Height="332" Margin="10,36,10,-45" VerticalAlignment="Top"
+            ItemsSource="{Binding}" AutoGenerateColumns="True" 
+            MaxHeight="300"    
+            MaxWidth="800"      
+            ScrollViewer.CanContentScroll="True" 
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+            ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+        <Menu HorizontalAlignment="Left" Height="36" Margin="10,0,0,0" VerticalAlignment="Top" Width="99">
+
+            <MenuItem Header="_Opciones" FontSize="20" Height="33">
+                <MenuItem x:Name="miNuevoJugador" Header="_Nuevo Jugador" Click="miNuevoJugador_Click" />
+                <MenuItem x:Name="miModificarJugador" Header="_Modificar Jugador" Click="miModificarJugador_Click" />
+                <MenuItem x:Name="miBorrarJugador" Header="_Borrar Jugador" Click=" miBorrarJugador_Click"/>
+                <MenuItem x:Name="miVerInforme" Header="_Ver Informe" Click="miVerInforme_Click" />
                 <Separator />
-                <MenuItem Header="_Exit" />
+                <MenuItem x:Name="btExit" Header="_Exit" Click="btExit_Click" />
             </MenuItem>
         </Menu>
-        <DataGrid x:Name="dgListaJugadores" HorizontalAlignment="Left" Height="360" Margin="192,21,0,0" VerticalAlignment="Top" Width="590"
-                  ItemsSource="{Binding}" AutoGenerateColumns="True"/>
-
-    </DockPanel>
+        <Button x:Name="btActualizar" Content="Actualizar Lista" HorizontalAlignment="Left" Margin="136,11,0,0" VerticalAlignment="Top" Width="94" Click="btActualizar_Click"/>
+    </Grid>
 </Window>

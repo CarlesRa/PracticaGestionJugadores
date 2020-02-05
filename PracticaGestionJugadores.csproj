@@ -68,6 +68,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="VBorrarJugador.xaml.cs">
+      <DependentUpon>VBorrarJugador.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VModificarJugador.xaml.cs">
+      <DependentUpon>VModificarJugador.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VNuevoJugador.xaml.cs">
+      <DependentUpon>VNuevoJugador.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -85,6 +94,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="VBorrarJugador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VModificarJugador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VNuevoJugador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
