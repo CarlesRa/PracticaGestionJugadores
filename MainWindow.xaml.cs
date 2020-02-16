@@ -30,6 +30,7 @@ namespace PracticaGestionJugadores
     public partial class MainWindow : Window
     {      
         private DbManagment manager;
+        private ligaDataSet dsTodaLaLiga;
         public MainWindow()
         {
             InitializeComponent();
@@ -75,8 +76,29 @@ namespace PracticaGestionJugadores
 
         private void miVerInforme_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("ONLY FOR PREMIUM USERS!!",
-                                 "Error", MessageBoxButton.OK);
+            /* MessageBoxResult result = MessageBox.Show("ONLY FOR PREMIUM USERS!!",
+                      "Error", MessageBoxButton.OK);*/
+            informeDatos.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local;
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource = new Microsoft.Reporting.WinForms.ReportDataSource();
+            dsTodaLaLiga = new ligaDataSet();
+            dsTodaLaLiga.BeginInit();
+            reportDataSource.Name = "DataSet1";
+            reportDataSource.Value = dsTodaLaLiga.jugador; 
+            informeDatos.LocalReport.DataSources.Add(reportDataSource);
+            informeDatos.LocalReport.ReportPath = "InformeJugadores.rdlc";
+            dsTodaLaLiga.EndInit();
+
+            try
+            {
+                String conexion = ConfigurationManager.
+                 ConnectionStrings["PracticaGestionJugadores.Properties.Settings.ligaConnectionString"].ConnectionString;
+                MySql.Data.MySqlClient.MySqlDataAdapter JugadorTableAdapter = new MySql.Data.MySqlClient.
+                    MySqlDataAdapter("Select * from jugador", conexion);
+                dsTodaLaLiga.Clear();
+                JugadorTableAdapter.Fill(dsTodaLaLiga.jugador);
+                informeDatos.RefreshReport();
+            }
+            catch (Exception exception) { Console.Error.WriteLine(exception); }
         }
     }
 }

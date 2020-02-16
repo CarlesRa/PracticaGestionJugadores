@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticaGestionJugadores"
+        xmlns:viewer="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
         mc:Ignorable="d"
-        Title="MainWindow" Height="395" Width="689">
+        Title="MainWindow" Height="776" Width="823">
     <Grid Margin="0,0,2,41">
 
         <DataGrid x:Name="dgListaJugadores" Height="332" Margin="10,36,10,-45" VerticalAlignment="Top"
@@ -27,5 +28,8 @@
             </MenuItem>
         </Menu>
         <Button x:Name="btActualizar" Content="Actualizar Lista" HorizontalAlignment="Left" Margin="136,11,0,0" VerticalAlignment="Top" Width="94" Click="btActualizar_Click"/>
+        <WindowsFormsHost HorizontalAlignment="Left" Height="336" VerticalAlignment="Top" Width="793" Margin="10,368,0,0">
+            <viewer:ReportViewer x:Name="informeDatos" />
+        </WindowsFormsHost>
     </Grid>
 </Window>

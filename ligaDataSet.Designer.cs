@@ -34,19 +34,19 @@ namespace PracticaGestionJugadores {
         
         private temporadaDataTable tabletemporada;
         
-        private global::System.Data.DataRelation relationfk_CLASIFICACION_EQUIPO1;
+        private global::System.Data.DataRelation relationfk_PARTIDO_Temporada1;
         
         private global::System.Data.DataRelation relationfk_CLASIFICACION_Temporada1;
         
-        private global::System.Data.DataRelation relationfk_equipo_jugador1;
-        
-        private global::System.Data.DataRelation relationfequipo;
-        
-        private global::System.Data.DataRelation relationfk_PARTIDO_Temporada1;
+        private global::System.Data.DataRelation relationfvisitante;
         
         private global::System.Data.DataRelation relationflocal;
         
-        private global::System.Data.DataRelation relationfvisitante;
+        private global::System.Data.DataRelation relationfequipo;
+        
+        private global::System.Data.DataRelation relationfk_equipo_jugador1;
+        
+        private global::System.Data.DataRelation relationfk_CLASIFICACION_EQUIPO1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -304,13 +304,13 @@ namespace PracticaGestionJugadores {
                     this.tabletemporada.InitVars();
                 }
             }
-            this.relationfk_CLASIFICACION_EQUIPO1 = this.Relations["fk_CLASIFICACION_EQUIPO1"];
-            this.relationfk_CLASIFICACION_Temporada1 = this.Relations["fk_CLASIFICACION_Temporada1"];
-            this.relationfk_equipo_jugador1 = this.Relations["fk_equipo_jugador1"];
-            this.relationfequipo = this.Relations["fequipo"];
             this.relationfk_PARTIDO_Temporada1 = this.Relations["fk_PARTIDO_Temporada1"];
-            this.relationflocal = this.Relations["flocal"];
+            this.relationfk_CLASIFICACION_Temporada1 = this.Relations["fk_CLASIFICACION_Temporada1"];
             this.relationfvisitante = this.Relations["fvisitante"];
+            this.relationflocal = this.Relations["flocal"];
+            this.relationfequipo = this.Relations["fequipo"];
+            this.relationfk_equipo_jugador1 = this.Relations["fk_equipo_jugador1"];
+            this.relationfk_CLASIFICACION_EQUIPO1 = this.Relations["fk_CLASIFICACION_EQUIPO1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -331,34 +331,34 @@ namespace PracticaGestionJugadores {
             base.Tables.Add(this.tablepartido);
             this.tabletemporada = new temporadaDataTable();
             base.Tables.Add(this.tabletemporada);
-            this.relationfk_CLASIFICACION_EQUIPO1 = new global::System.Data.DataRelation("fk_CLASIFICACION_EQUIPO1", new global::System.Data.DataColumn[] {
-                        this.tableequipo.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableclasificacion.EQUIPO_IDColumn}, false);
-            this.Relations.Add(this.relationfk_CLASIFICACION_EQUIPO1);
-            this.relationfk_CLASIFICACION_Temporada1 = new global::System.Data.DataRelation("fk_CLASIFICACION_Temporada1", new global::System.Data.DataColumn[] {
-                        this.tabletemporada.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableclasificacion.TEMPORADA_IDColumn}, false);
-            this.Relations.Add(this.relationfk_CLASIFICACION_Temporada1);
-            this.relationfk_equipo_jugador1 = new global::System.Data.DataRelation("fk_equipo_jugador1", new global::System.Data.DataColumn[] {
-                        this.tablejugador.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableequipo.CAPITANColumn}, false);
-            this.Relations.Add(this.relationfk_equipo_jugador1);
-            this.relationfequipo = new global::System.Data.DataRelation("fequipo", new global::System.Data.DataColumn[] {
-                        this.tableequipo.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tablejugador.EQUIPOColumn}, false);
-            this.Relations.Add(this.relationfequipo);
             this.relationfk_PARTIDO_Temporada1 = new global::System.Data.DataRelation("fk_PARTIDO_Temporada1", new global::System.Data.DataColumn[] {
                         this.tabletemporada.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tablepartido.TEMPORADAColumn}, false);
             this.Relations.Add(this.relationfk_PARTIDO_Temporada1);
-            this.relationflocal = new global::System.Data.DataRelation("flocal", new global::System.Data.DataColumn[] {
-                        this.tableequipo.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tablepartido.LOCALColumn}, false);
-            this.Relations.Add(this.relationflocal);
+            this.relationfk_CLASIFICACION_Temporada1 = new global::System.Data.DataRelation("fk_CLASIFICACION_Temporada1", new global::System.Data.DataColumn[] {
+                        this.tabletemporada.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableclasificacion.TEMPORADA_IDColumn}, false);
+            this.Relations.Add(this.relationfk_CLASIFICACION_Temporada1);
             this.relationfvisitante = new global::System.Data.DataRelation("fvisitante", new global::System.Data.DataColumn[] {
                         this.tableequipo.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tablepartido.VISITANTEColumn}, false);
             this.Relations.Add(this.relationfvisitante);
+            this.relationflocal = new global::System.Data.DataRelation("flocal", new global::System.Data.DataColumn[] {
+                        this.tableequipo.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tablepartido.LOCALColumn}, false);
+            this.Relations.Add(this.relationflocal);
+            this.relationfequipo = new global::System.Data.DataRelation("fequipo", new global::System.Data.DataColumn[] {
+                        this.tableequipo.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tablejugador.EQUIPOColumn}, false);
+            this.Relations.Add(this.relationfequipo);
+            this.relationfk_equipo_jugador1 = new global::System.Data.DataRelation("fk_equipo_jugador1", new global::System.Data.DataColumn[] {
+                        this.tablejugador.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableequipo.CAPITANColumn}, false);
+            this.Relations.Add(this.relationfk_equipo_jugador1);
+            this.relationfk_CLASIFICACION_EQUIPO1 = new global::System.Data.DataRelation("fk_CLASIFICACION_EQUIPO1", new global::System.Data.DataColumn[] {
+                        this.tableequipo.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableclasificacion.EQUIPO_IDColumn}, false);
+            this.Relations.Add(this.relationfk_CLASIFICACION_EQUIPO1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2165,23 +2165,23 @@ namespace PracticaGestionJugadores {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public equipoRow equipoRow {
-                get {
-                    return ((equipoRow)(this.GetParentRow(this.Table.ParentRelations["fk_CLASIFICACION_EQUIPO1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["fk_CLASIFICACION_EQUIPO1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public temporadaRow temporadaRow {
                 get {
                     return ((temporadaRow)(this.GetParentRow(this.Table.ParentRelations["fk_CLASIFICACION_Temporada1"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["fk_CLASIFICACION_Temporada1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public equipoRow equipoRow {
+                get {
+                    return ((equipoRow)(this.GetParentRow(this.Table.ParentRelations["fk_CLASIFICACION_EQUIPO1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["fk_CLASIFICACION_EQUIPO1"]);
                 }
             }
             
@@ -2342,23 +2342,12 @@ namespace PracticaGestionJugadores {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public clasificacionRow[] GetclasificacionRows() {
-                if ((this.Table.ChildRelations["fk_CLASIFICACION_EQUIPO1"] == null)) {
-                    return new clasificacionRow[0];
+            public partidoRow[] GetpartidoRowsByfvisitante() {
+                if ((this.Table.ChildRelations["fvisitante"] == null)) {
+                    return new partidoRow[0];
                 }
                 else {
-                    return ((clasificacionRow[])(base.GetChildRows(this.Table.ChildRelations["fk_CLASIFICACION_EQUIPO1"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public jugadorRow[] GetjugadorRows() {
-                if ((this.Table.ChildRelations["fequipo"] == null)) {
-                    return new jugadorRow[0];
-                }
-                else {
-                    return ((jugadorRow[])(base.GetChildRows(this.Table.ChildRelations["fequipo"])));
+                    return ((partidoRow[])(base.GetChildRows(this.Table.ChildRelations["fvisitante"])));
                 }
             }
             
@@ -2375,12 +2364,23 @@ namespace PracticaGestionJugadores {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public partidoRow[] GetpartidoRowsByfvisitante() {
-                if ((this.Table.ChildRelations["fvisitante"] == null)) {
-                    return new partidoRow[0];
+            public jugadorRow[] GetjugadorRows() {
+                if ((this.Table.ChildRelations["fequipo"] == null)) {
+                    return new jugadorRow[0];
                 }
                 else {
-                    return ((partidoRow[])(base.GetChildRows(this.Table.ChildRelations["fvisitante"])));
+                    return ((jugadorRow[])(base.GetChildRows(this.Table.ChildRelations["fequipo"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public clasificacionRow[] GetclasificacionRows() {
+                if ((this.Table.ChildRelations["fk_CLASIFICACION_EQUIPO1"] == null)) {
+                    return new clasificacionRow[0];
+                }
+                else {
+                    return ((clasificacionRow[])(base.GetChildRows(this.Table.ChildRelations["fk_CLASIFICACION_EQUIPO1"])));
                 }
             }
         }
@@ -2748,23 +2748,23 @@ namespace PracticaGestionJugadores {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public equipoRow equipoRowByflocal {
-                get {
-                    return ((equipoRow)(this.GetParentRow(this.Table.ParentRelations["flocal"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["flocal"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public equipoRow equipoRowByfvisitante {
                 get {
                     return ((equipoRow)(this.GetParentRow(this.Table.ParentRelations["fvisitante"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["fvisitante"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public equipoRow equipoRowByflocal {
+                get {
+                    return ((equipoRow)(this.GetParentRow(this.Table.ParentRelations["flocal"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["flocal"]);
                 }
             }
             
@@ -2916,23 +2916,23 @@ namespace PracticaGestionJugadores {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public clasificacionRow[] GetclasificacionRows() {
-                if ((this.Table.ChildRelations["fk_CLASIFICACION_Temporada1"] == null)) {
-                    return new clasificacionRow[0];
-                }
-                else {
-                    return ((clasificacionRow[])(base.GetChildRows(this.Table.ChildRelations["fk_CLASIFICACION_Temporada1"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public partidoRow[] GetpartidoRows() {
                 if ((this.Table.ChildRelations["fk_PARTIDO_Temporada1"] == null)) {
                     return new partidoRow[0];
                 }
                 else {
                     return ((partidoRow[])(base.GetChildRows(this.Table.ChildRelations["fk_PARTIDO_Temporada1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public clasificacionRow[] GetclasificacionRows() {
+                if ((this.Table.ChildRelations["fk_CLASIFICACION_Temporada1"] == null)) {
+                    return new clasificacionRow[0];
+                }
+                else {
+                    return ((clasificacionRow[])(base.GetChildRows(this.Table.ChildRelations["fk_CLASIFICACION_Temporada1"])));
                 }
             }
         }
@@ -6430,15 +6430,6 @@ namespace PracticaGestionJugadores.ligaDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateUpdatedRows(ligaDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._equipoTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.equipo.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._equipoTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._jugadorTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.jugador.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -6457,12 +6448,12 @@ namespace PracticaGestionJugadores.ligaDataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._clasificacionTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.clasificacion.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._equipoTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.equipo.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._clasificacionTableAdapter.Update(updatedRows));
+                    result = (result + this._equipoTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -6472,6 +6463,15 @@ namespace PracticaGestionJugadores.ligaDataSetTableAdapters {
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._partidoTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._clasificacionTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.clasificacion.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._clasificacionTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -6485,14 +6485,6 @@ namespace PracticaGestionJugadores.ligaDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateInsertedRows(ligaDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._equipoTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.equipo.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._equipoTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._jugadorTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.jugador.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -6509,11 +6501,11 @@ namespace PracticaGestionJugadores.ligaDataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._clasificacionTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.clasificacion.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._equipoTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.equipo.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._clasificacionTableAdapter.Update(addedRows));
+                    result = (result + this._equipoTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -6522,6 +6514,14 @@ namespace PracticaGestionJugadores.ligaDataSetTableAdapters {
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._partidoTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._clasificacionTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.clasificacion.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._clasificacionTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -6535,6 +6535,14 @@ namespace PracticaGestionJugadores.ligaDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(ligaDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._clasificacionTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.clasificacion.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._clasificacionTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._partidoTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.partido.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -6543,11 +6551,11 @@ namespace PracticaGestionJugadores.ligaDataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._clasificacionTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.clasificacion.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._equipoTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.equipo.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._clasificacionTableAdapter.Update(deletedRows));
+                    result = (result + this._equipoTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -6564,14 +6572,6 @@ namespace PracticaGestionJugadores.ligaDataSetTableAdapters {
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._jugadorTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._equipoTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.equipo.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._equipoTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
