@@ -76,8 +76,7 @@ namespace PracticaGestionJugadores
 
         private void miVerInforme_Click(object sender, RoutedEventArgs e)
         {
-            /* MessageBoxResult result = MessageBox.Show("ONLY FOR PREMIUM USERS!!",
-                      "Error", MessageBoxButton.OK);*/
+           
             informeDatos.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local;
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource = new Microsoft.Reporting.WinForms.ReportDataSource();
             dsTodaLaLiga = new ligaDataSet();
